@@ -1,5 +1,5 @@
 target/
-src/main/java/SQL/CSV/*
+src/main/java/SQL/CSV/*.csv
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
