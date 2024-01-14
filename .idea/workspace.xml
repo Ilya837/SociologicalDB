@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fae9d0e-df56-4923-9b94-e7037d9faf91" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/CSV/Respondents.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/CSV/Schwarrtz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/CSV/Williams.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Mednik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Mednik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/MednikOriginality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/MednikOriginality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/MednikQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/MednikQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Respondents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Respondents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Schwarrtz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Schwarrtz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Sociology.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Sociology.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/SociologyQuestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/SociologyQuestions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Triandis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Triandis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Williams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Williams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/BaseTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/BaseTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikOriginalityTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikOriginalityTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" afterDir="false" />
@@ -104,7 +91,7 @@
       <workItem from="1705192379150" duration="3036000" />
       <workItem from="1705195662281" duration="385000" />
       <workItem from="1705237166296" duration="9780000" />
-      <workItem from="1705262496982" duration="2360000" />
+      <workItem from="1705262496982" duration="6171000" />
     </task>
     <servers />
   </component>

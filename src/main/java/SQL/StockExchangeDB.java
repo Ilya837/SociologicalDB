@@ -1,5 +1,6 @@
 package SQL;
 
+import SQL.model.Schwarrtz;
 import SQL.repository.*;
 
 import java.sql.Connection;
@@ -127,7 +128,13 @@ public class StockExchangeDB {
     }
 
     public void WriteInTables() throws SQLException {
-        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Respondents.csv");
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Respondents.csv",false, true);
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",false, true);
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",false, true);
+
+
+        williamsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",1, false, true);
+        schwartzTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",1, false, true);
     }
 
     public static void main(String[] args) {

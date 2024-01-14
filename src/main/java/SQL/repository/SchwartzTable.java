@@ -1,5 +1,11 @@
 package SQL.repository;
 
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+
+import java.io.FileReader;
 import java.sql.SQLException;
 
 public class SchwartzTable extends BaseTable implements TableOperations {
@@ -34,7 +40,57 @@ public class SchwartzTable extends BaseTable implements TableOperations {
     }
 
     @Override
-    public void WriteInTable(String filePath) throws SQLException {
+    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
 
+        WriteInTable(filePath,0,WriteExpention,WriteInfo);
+
+    }
+
+    public void WriteInTable(String filePath,int TestIndex, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+        try {
+            FileReader fileReader = new FileReader(filePath);
+
+            CSVParser parser = new CSVParserBuilder().
+                    withSeparator(';').
+                    build();
+
+            CSVReader csvReader = new CSVReaderBuilder(fileReader).
+                    withCSVParser(parser).
+                    build();
+
+            String[] nextRecord;
+
+            csvReader.readNext();
+
+            while ((nextRecord = csvReader.readNext()) != null) {
+
+                try {
+                    String str = "";
+
+                    str += "'" + nextRecord[0] + "', " + TestIndex;
+
+                    for (int i = 1; i <= 10; i++) {
+                        str += ", " + nextRecord[i].replace(',','.');
+                    }
+
+                    str += ",'" + nextRecord[11] + "'";
+
+                    super.executeSqlStatement("INSERT INTO " + tableName +
+                            " VALUES ( " + str + " );");
+
+                    if (WriteInfo)
+                        System.out.println("В " + tableName + " Добавлена запись " + str);
+
+                } catch (Exception e) {
+                    if (WriteExpention) System.out.println(e.toString());
+                }
+            }
+
+            csvReader.close();
+            fileReader.close();
+
+        } catch (Exception e) {
+            if (WriteExpention) System.out.println(e.toString());
+        }
     }
 }

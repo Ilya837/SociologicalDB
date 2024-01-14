@@ -25,7 +25,7 @@ public class RespondentsTable extends BaseTable implements TableOperations {
     }
 
     @Override
-    public void WriteInTable(String filePath) throws SQLException {
+    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
 
         try {
             FileReader fileReader = new FileReader(filePath);
@@ -40,8 +40,22 @@ public class RespondentsTable extends BaseTable implements TableOperations {
 
             String[] nextRecord;
 
+            csvReader.readNext();
+
             while((nextRecord = csvReader.readNext()) != null){
-                System.out.println(nextRecord[0]);
+
+                try {
+
+                    super.executeSqlStatement("INSERT INTO " + tableName +
+                            " VALUES ( '" + nextRecord[0] + "' );");
+
+                    if(WriteInfo)
+                        System.out.println("В " + tableName + " Добавлена запись " + nextRecord[0]);
+
+                }
+
+                catch (Exception e){ if(WriteExpention) System.out.println(e.toString());}
+
             }
 
             csvReader.close();
@@ -49,7 +63,7 @@ public class RespondentsTable extends BaseTable implements TableOperations {
 
         }
         catch (Exception e){
-            System.out.println(e);
+            System.out.println(e.toString());
         }
-        }
+    }
 }

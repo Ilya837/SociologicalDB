@@ -20,7 +20,7 @@ public class SociologyQuestionsTable extends BaseTable implements TableOperation
     }
 
     @Override
-    public void WriteInTable(String filePath) throws SQLException {
+    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
 
     }
 }

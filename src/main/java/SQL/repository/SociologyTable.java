@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class SociologyTable extends BaseTable implements TableOperations {
 
     public SociologyTable() throws SQLException {
-        super("sociology ");
+        super("sociology");
     }
 
     @Override
@@ -28,7 +28,7 @@ public class SociologyTable extends BaseTable implements TableOperations {
     }
 
     @Override
-    public void WriteInTable(String filePath) throws SQLException {
+    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
 
     }
 }

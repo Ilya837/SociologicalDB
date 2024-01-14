@@ -10,7 +10,7 @@ import java.sql.Statement;
 
 
 // Сервисный родительский класс, куда вынесена реализация общих действий для всех таблиц
-public class BaseTable implements Closeable {
+public abstract class BaseTable implements Closeable {
     Connection connection;  // JDBC-соединение для работы с таблицей
     String tableName;       // Имя таблицы
 
