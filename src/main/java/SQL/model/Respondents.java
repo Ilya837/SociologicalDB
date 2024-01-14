@@ -2,22 +2,22 @@ package SQL.model;
 
 // Модель акции
 public class Respondents extends BaseModel {
-    private int ID;
+    private String RespondentID;
 
 
     public Respondents() {
     }
 
-    public Respondents(long id, int ID) {
+    public Respondents(long id, String ID) {
         super(id);
-        this.ID = ID;
+        this.RespondentID = ID;
     }
 
-    public int getID() {
-        return ID;
+    public String getRespondentID() {
+        return RespondentID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setRespondentID(String respondentID) {
+        this.RespondentID = respondentID;
     }
 }

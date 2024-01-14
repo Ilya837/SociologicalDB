@@ -5,18 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fae9d0e-df56-4923-9b94-e7037d9faf91" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/model/BaseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Williams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/BaseTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/TableOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/CSV/Respondents.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/CSV/Schwarrtz.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SQL/CSV/Williams.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Mednik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Mednik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/MednikOriginality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/MednikOriginality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/MednikQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/MednikQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Respondents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Respondents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Schwarrtz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Schwarrtz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Sociology.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Sociology.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/SociologyQuestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/SociologyQuestions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Triandis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Triandis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/model/Williams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/model/Williams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikOriginalityTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikOriginalityTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/RespondentsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/RespondentsTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyQuestionsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyQuestionsTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/TableOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/TableOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/TriandisTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/TriandisTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +51,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Projects/SociologicalDB/src/main/java/SQL/CSV"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\SociologicalDB\src\main\java\SQL\CSV" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="SQL.repository" />
       <recent name="SQL.model" />
@@ -85,7 +103,8 @@
       <workItem from="1705190779342" duration="1584000" />
       <workItem from="1705192379150" duration="3036000" />
       <workItem from="1705195662281" duration="385000" />
-      <workItem from="1705237166296" duration="9181000" />
+      <workItem from="1705237166296" duration="9780000" />
+      <workItem from="1705262496982" duration="2360000" />
     </task>
     <servers />
   </component>

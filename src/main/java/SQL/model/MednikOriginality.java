@@ -2,7 +2,7 @@ package SQL.model;
 
 // Модель акции
 public class MednikOriginality extends BaseModel {
-    private int RespondentID;
+    private String RespondentID;
     private int IndexOfTest;
     private double Originality;
 
@@ -11,7 +11,7 @@ public class MednikOriginality extends BaseModel {
     public MednikOriginality() {
     }
 
-    public MednikOriginality(long id, int respondentID, int indexOfTest, double originality, String level) {
+    public MednikOriginality(long id, String respondentID, int indexOfTest, double originality, String level) {
         super(id);
         RespondentID = respondentID;
         IndexOfTest = indexOfTest;
@@ -19,11 +19,11 @@ public class MednikOriginality extends BaseModel {
         Level = level;
     }
 
-    public int getRespondentID() {
+    public String getRespondentID() {
         return RespondentID;
     }
 
-    public void setRespondentID(int respondentID) {
+    public void setRespondentID(String respondentID) {
         RespondentID = respondentID;
     }
 

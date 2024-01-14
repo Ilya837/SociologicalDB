@@ -3,24 +3,24 @@ package SQL.model;
 // Модель акции
 public class SociologyQuestions extends BaseModel {
 
-    private String ID;
+    private String QuestionId;
     private String Specification;
 
     public SociologyQuestions() {
     }
 
-    public SociologyQuestions(long id, String ID, String text) {
+    public SociologyQuestions(long id, String questionId, String specification) {
         super(id);
-        this.ID = ID;
-        Specification = text;
+        this.QuestionId = questionId;
+        Specification = specification;
     }
 
-    public String getID() {
-        return ID;
+    public String getQuestionId() {
+        return QuestionId;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setQuestionId(String questionId) {
+        this.QuestionId = questionId;
     }
 
     public String getSpecification() {

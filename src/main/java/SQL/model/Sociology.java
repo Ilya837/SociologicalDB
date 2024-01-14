@@ -2,7 +2,7 @@ package SQL.model;
 
 // Модель акции
 public class Sociology extends BaseModel {
-    private int RespondentID;
+    private String RespondentID;
     private String QuestionId;
     private int Answer;
 
@@ -10,18 +10,18 @@ public class Sociology extends BaseModel {
     public Sociology() {
     }
 
-    public Sociology(long id, int respondentID, String questionId, int answer) {
+    public Sociology(long id, String respondentID, String questionId, int answer) {
         super(id);
         RespondentID = respondentID;
         QuestionId = questionId;
         Answer = answer;
     }
 
-    public int getRespondentID() {
+    public String getRespondentID() {
         return RespondentID;
     }
 
-    public void setRespondentID(int respondentID) {
+    public void setRespondentID(String respondentID) {
         RespondentID = respondentID;
     }
 

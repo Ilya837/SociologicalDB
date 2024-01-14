@@ -126,11 +126,19 @@ public class StockExchangeDB {
         sociologyQuestionsTable.close();
     }
 
+    public void WriteInTables() throws SQLException {
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Respondents.csv");
+    }
+
     public static void main(String[] args) {
         try{
             StockExchangeDB stockExchangeDB = new StockExchangeDB();
             stockExchangeDB.createTablesAndForeignKeys();
             stockExchangeDB.closeTables();
+
+            stockExchangeDB.WriteInTables();
+
+
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Ошибка SQL !");

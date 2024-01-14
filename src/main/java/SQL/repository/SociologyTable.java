@@ -11,7 +11,7 @@ public class SociologyTable extends BaseTable implements TableOperations {
     @Override
     public void createTable() throws SQLException {
         super.executeSqlStatement("CREATE TABLE IF NOT EXISTS " + tableName + "(" +
-                "respondent_id INTEGER," +
+                "respondent_id CHARACTER VARYING(30)," +
                 "index_of_test INTEGER," +
                 "question_id CHARACTER VARYING(30)," +
                 "answer INTEGER," +
@@ -25,5 +25,10 @@ public class SociologyTable extends BaseTable implements TableOperations {
 
         super.executeSqlStatement(" ALTER TABLE "+ tableName +" ADD FOREIGN KEY (question_id) REFERENCES sociology_questions(question_id)",
                 "Cоздан внешний ключ " + tableName + ".question_id -> sociology_questions.question_id");
+    }
+
+    @Override
+    public void WriteInTable(String filePath) throws SQLException {
+
     }
 }

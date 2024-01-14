@@ -2,7 +2,7 @@ package SQL.model;
 
 // Модель акции
 public class Williams extends SQL.model.BaseModel {
-    private int RespondentID;
+    private String RespondentID;
     private int IndexOfTest;
     private int Inquisitiveness;
     private int Imagination  ;
@@ -14,7 +14,7 @@ public class Williams extends SQL.model.BaseModel {
     public Williams() {
     }
 
-    public Williams(long id, int respondentID, int indexOfTest, int inquisitiveness, int imagination, int complexity, int riskAppetite, int sum, String level) {
+    public Williams(long id, String respondentID, int indexOfTest, int inquisitiveness, int imagination, int complexity, int riskAppetite, int sum, String level) {
         super(id);
         RespondentID = respondentID;
         IndexOfTest = indexOfTest;
@@ -26,11 +26,11 @@ public class Williams extends SQL.model.BaseModel {
         Level = level;
     }
 
-    public int getRespondentID() {
+    public String getRespondentID() {
         return RespondentID;
     }
 
-    public void setRespondentID(int respondentID) {
+    public void setRespondentID(String respondentID) {
         RespondentID = respondentID;
     }
 

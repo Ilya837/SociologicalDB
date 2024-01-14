@@ -2,7 +2,7 @@ package SQL.model;
 
 // Модель акции
 public class Schwarrtz extends BaseModel {
-    private int RespondentID;
+    private String RespondentID;
     private int IndexOfTest;
     private double Safety;
     private double Comfort;
@@ -19,7 +19,7 @@ public class Schwarrtz extends BaseModel {
     public Schwarrtz() {
     }
 
-    public Schwarrtz(long id, int respondentID, int indexOfTest, double safety, double comfort, double tradition, double independence, double riskNovelty, double hedonism, double achievement, double power, double benevolence, double universalism, String level) {
+    public Schwarrtz(long id, String respondentID, int indexOfTest, double safety, double comfort, double tradition, double independence, double riskNovelty, double hedonism, double achievement, double power, double benevolence, double universalism, String level) {
         super(id);
         RespondentID = respondentID;
         IndexOfTest = indexOfTest;
@@ -36,11 +36,11 @@ public class Schwarrtz extends BaseModel {
         Level = level;
     }
 
-    public int getRespondentID() {
+    public String getRespondentID() {
         return RespondentID;
     }
 
-    public void setRespondentID(int respondentID) {
+    public void setRespondentID(String respondentID) {
         RespondentID = respondentID;
     }
 

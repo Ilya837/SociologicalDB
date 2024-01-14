@@ -2,24 +2,24 @@ package SQL.model;
 
 // Модель акции
 public class MednikQuestion extends BaseModel {
-    private int ID;
+    private int QuestionId;
     private String Specification;
 
     public MednikQuestion() {
     }
 
-    public MednikQuestion(long id, int ID, String text) {
+    public MednikQuestion(long id, int questionId, String specification) {
         super(id);
-        this.ID = ID;
-        Specification = text;
+        this.QuestionId = questionId;
+        Specification = specification;
     }
 
-    public int getID() {
-        return ID;
+    public int getQuestionId() {
+        return QuestionId;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setQuestionId(int questionId) {
+        this.QuestionId = questionId;
     }
 
     public String getSpecification() {

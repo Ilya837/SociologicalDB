@@ -18,4 +18,9 @@ public class SociologyQuestionsTable extends BaseTable implements TableOperation
     @Override
     public void createForeignKeys() throws SQLException {
     }
+
+    @Override
+    public void WriteInTable(String filePath) throws SQLException {
+
+    }
 }

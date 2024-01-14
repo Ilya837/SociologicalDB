@@ -11,7 +11,7 @@ public class WilliamsTable extends SQL.repository.BaseTable implements TableOper
     @Override
     public void createTable() throws SQLException {
         super.executeSqlStatement("CREATE TABLE IF NOT EXISTS " + tableName + "(" +
-                "respondent_id INTEGER," +
+                "respondent_id CHARACTER VARYING(30)," +
                 "index_of_test INTEGER," +
                 "inquisitiveness INTEGER," +
                 "imagination INTEGER," +
@@ -26,5 +26,10 @@ public class WilliamsTable extends SQL.repository.BaseTable implements TableOper
     public void createForeignKeys() throws SQLException {
         super.executeSqlStatement(" ALTER TABLE "+ tableName +" ADD FOREIGN KEY (respondent_id) REFERENCES respondents(respondent_id)",
                 "Cоздан внешний ключ " + tableName + ".respondent_id -> respondents.respondent_id");
+    }
+
+    @Override
+    public void WriteInTable(String filePath) throws SQLException {
+
     }
 }

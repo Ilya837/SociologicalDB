@@ -18,4 +18,9 @@ public class MednikQuestionsTable extends BaseTable implements TableOperations {
     @Override
     public void createForeignKeys() throws SQLException {
     }
+
+    @Override
+    public void WriteInTable(String filePath) throws SQLException {
+
+    }
 }
