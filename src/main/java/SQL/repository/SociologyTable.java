@@ -1,6 +1,15 @@
 package SQL.repository;
 
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+
+import java.io.FileReader;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SociologyTable extends BaseTable implements TableOperations {
 
@@ -29,6 +38,83 @@ public class SociologyTable extends BaseTable implements TableOperations {
 
     @Override
     public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+        WriteInTable(filePath,0,WriteExpention,WriteInfo);
+    }
 
+    public void WriteInTable(String filePath, int TestIndex, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+        try {
+            List<String> questionNumbers = new ArrayList<>();
+
+            FileReader fileReader = new FileReader(filePath);
+
+            CSVParser parser = new CSVParserBuilder().
+                    withSeparator(';').
+                    build();
+
+            CSVReader csvReader = new CSVReaderBuilder(fileReader).
+                    withCSVParser(parser).
+                    build();
+
+            String[] nextRecord;
+
+            csvReader.readNext();
+            csvReader.readNext();
+
+            nextRecord = csvReader.readNext();
+
+            for(int i=5; i< nextRecord.length; i++)
+            {
+                if (i>-5 && i<9){
+                    String tmp = "0." + (i-4);
+                    questionNumbers.add(tmp);
+                }
+                else if (i>=11) {
+                    questionNumbers.add(nextRecord[i]);
+                }
+            }
+
+            while ((nextRecord = csvReader.readNext()) != null) {
+                try {
+                    int recordIndex = 5;
+
+                    for (int i = 0; i < questionNumbers.size(); i++) {
+                        String str = "";
+
+                        while (recordIndex == 9 || recordIndex == 10) {
+                            recordIndex++;
+                        }
+
+                        str += "'" + nextRecord[0] + "', " + TestIndex + ", '" + questionNumbers.get(i) + "', ";
+
+                        if (nextRecord[recordIndex] == "" || nextRecord[recordIndex] == "#Н/Д") {
+                            str += "NULL";
+                        } else {
+                            String[] multipleAnswers = nextRecord[recordIndex].split(" ");
+
+                            int parsedAnswer = Integer.parseInt(multipleAnswers[0]);
+                            str += parsedAnswer;
+                        }
+
+                        recordIndex++;
+
+                        super.executeSqlStatement("INSERT INTO " + tableName +
+                                " VALUES ( " + str + " );");
+
+                        if (WriteInfo)
+                            System.out.println("В " + tableName + " Добавлена запись " + str);
+                        }
+                } catch (Exception e) {
+                    if (WriteExpention) System.out.println(e.toString());
+                    System.out.println(nextRecord[0]);
+                }
+            }
+
+            csvReader.close();
+            fileReader.close();
+
+        }
+        catch (Exception e){
+            if (WriteExpention) System.out.println(e.toString());
+        }
     }
 }

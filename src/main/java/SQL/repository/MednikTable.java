@@ -1,5 +1,11 @@
 package SQL.repository;
 
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+
+import java.io.FileReader;
 import java.sql.SQLException;
 
 public class MednikTable extends BaseTable implements TableOperations {

@@ -26,21 +26,30 @@ public class RespondentsTable extends BaseTable implements TableOperations {
 
     @Override
     public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+        WriteInTable(filePath,WriteExpention,WriteInfo,false);
+    }
+
+    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo, boolean isSociology) throws SQLException {
 
         try {
             FileReader fileReader = new FileReader(filePath);
 
             CSVParser parser = new  CSVParserBuilder().
-                                    withSeparator(';').
-                                    build();
+                    withSeparator(';').
+                    build();
 
             CSVReader csvReader = new CSVReaderBuilder(fileReader).
-                                            withCSVParser(parser).
-                                            build();
+                    withCSVParser(parser).
+                    build();
 
             String[] nextRecord;
 
             csvReader.readNext();
+
+            if(isSociology){
+                csvReader.readNext();
+                csvReader.readNext();
+            }
 
             while((nextRecord = csvReader.readNext()) != null){
 
