@@ -21,6 +21,55 @@ public class MednikQuestionsTable extends BaseTable implements TableOperations {
 
     @Override
     public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
-
+        WriteInTable(filePath,0,WriteExpention,WriteInfo);
     }
+
+    public void WriteInTable(String filePath, int TestIndex, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+        try {
+            FileReader fileReader = new FileReader(filePath);
+
+            CSVParser parser = new CSVParserBuilder().
+                    withSeparator(';').
+                    build();
+
+            CSVReader csvReader = new CSVReaderBuilder(fileReader).
+                    withCSVParser(parser).
+                    build();
+
+            String[] nextRecord;
+            String[] str = new String[18];
+            int k = 1;
+            try {
+                nextRecord = csvReader.readNext();
+                for (int i = 0; i < 18; i++) {
+                    str[i] = i + ", '" + nextRecord[k] + "; ";
+                    k = k+2;
+                }
+                k = 1;
+                nextRecord = csvReader.readNext();
+                for (int i = 0; i < 18; i++) {
+                    str[i] = str[i] + nextRecord[k] + "; ";
+                    k = k+2;
+                }
+                nextRecord = csvReader.readNext();
+                for (int i = 0; i < 18; i++) {
+                    str[i] = str[i] + nextRecord[i+1] + "'";
+                    super.executeSqlStatement("INSERT INTO " + tableName +
+                            " VALUES ( " + str[i] + " );");
+                    if (WriteInfo)
+                        System.out.println("В " + tableName + " Добавлена запись " + str[i]);
+                }
+
+            }
+            catch (Exception e){ if(WriteExpention) System.out.println(e.toString());}
+
+            csvReader.close();
+            fileReader.close();
+
+        }
+        catch (Exception e){
+            if (WriteExpention) System.out.println(e.toString());
+        }
+    }
+
 }

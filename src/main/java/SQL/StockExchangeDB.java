@@ -131,10 +131,14 @@ public class StockExchangeDB {
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Respondents.csv",false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",false, true);
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",false, true);
 
 
         williamsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",1, false, true);
         schwartzTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",1, false, true);
+        mednikOriginalityTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",1, false, true);
+        mednikQuestionsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",1, false, true);
+        mednikTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",1, false, true);
     }
 
     public static void main(String[] args) {
