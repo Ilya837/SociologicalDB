@@ -131,8 +131,8 @@ public class StockExchangeDB {
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Respondents.csv", ';',false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",';',false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",';',false, true);
-        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',false, true,true);
-        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",';',false, true);
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',false, true,true,false);
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",';',false, true,false,true);
 
 
         williamsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",';',1, false, true);
