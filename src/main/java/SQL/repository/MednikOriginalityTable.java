@@ -59,7 +59,9 @@ public class MednikOriginalityTable extends BaseTable implements TableOperations
 
                 try {
                     String str = "";
-
+                    if (nextRecord[19] == "")
+                        str += "'" + nextRecord[0] + "', " + TestIndex + ", NULL, '" + nextRecord[20] + "'";
+                    else
                     str += "'" + nextRecord[0] + "', " + TestIndex + ", " + nextRecord[19] + ", '" + nextRecord[20] + "'";
 
                     super.executeSqlStatement("INSERT INTO " + tableName +
