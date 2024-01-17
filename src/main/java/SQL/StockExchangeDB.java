@@ -132,14 +132,14 @@ public class StockExchangeDB {
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",';',false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",';',false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',false, true,true,false);
-        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",';',false, true,false,true);
+        respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",'|',false, true,false,true);
 
 
         williamsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",';',1, false, true);
         schwartzTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",';',1, false, true);
-        mednikOriginalityTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",';',1, false, true);
-        mednikQuestionsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",';',1, false, true);
-        mednikTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",';',1, false, true);
+        mednikOriginalityTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",'|',1, false, true);
+        mednikQuestionsTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",'|',1, false, true);
+        mednikTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",'|',1, false, true);
         triandisTable.WriteInTable("./src/main/java/SQL/CSV/Triandis.csv",';',1, false, true);
         sociologyQuestionsTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',1, false, true);
         sociologyTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',1, true, false);
