@@ -44,30 +44,27 @@ public class MednikQuestionsTable extends BaseTable implements TableOperations {
 
             String[] nextRecord;
             String[] str = new String[18];
-            try {
                 nextRecord = csvReader.readNext();
                 for (int i = 0; i < 18; i++) {
-                    str[i] = i + ", '" + nextRecord[i+1] + "; ";
+                    str[i] = i + ", '" + nextRecord[i+1] + " ";
                 }
                 nextRecord = csvReader.readNext();
                 for (int i = 0; i < 18; i++) {
-                    str[i] = str[i] + nextRecord[i+1] + "; ";
+                    str[i] = str[i] + nextRecord[i+1] + " ";
                 }
                 nextRecord = csvReader.readNext();
                 for (int i = 0; i < 18; i++) {
                     str[i] = str[i] + nextRecord[i+1] + "'";
-                    super.executeSqlStatement("INSERT INTO " + tableName +
-                            " VALUES ( " + str[i] + " );");
-                    if (WriteInfo)
-                        System.out.println("В " + tableName + " Добавлена запись " + str[i]);
+                    try {
+                        super.executeSqlStatement("INSERT INTO " + tableName +
+                                " VALUES ( " + str[i] + " );");
+                        if (WriteInfo)
+                            System.out.println("В " + tableName + " Добавлена запись " + str[i]);
+                    }
+                    catch (Exception e){ if(WriteExpention) System.out.println(e.toString());}
                 }
-
-            }
-            catch (Exception e){ if(WriteExpention) System.out.println(e.toString());}
-
             csvReader.close();
             fileReader.close();
-
         }
         catch (Exception e){
             if (WriteExpention) System.out.println(e.toString());
