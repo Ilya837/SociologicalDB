@@ -26,7 +26,7 @@ public class RespondentsTable extends BaseTable implements TableOperations {
 
     @Override
     public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo) throws SQLException {
-        WriteInTable(filePath, Separator,WriteExpention,WriteInfo,false);
+        WriteInTable(filePath, Separator,WriteExpention,WriteInfo,false,false);
     }
 
     public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo, boolean isSociology, boolean isMednik) throws SQLException {
