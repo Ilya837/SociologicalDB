@@ -20,7 +20,7 @@ public class MednikTable extends BaseTable implements TableOperations {
                 "respondent_id CHARACTER VARYING(30)," +
                 "index_of_test INTEGER," +
                 "question_id INTEGER," +
-                "answer CHARACTER VARYING(30)," +
+                "answer CHARACTER VARYING(255)," +
                 "originality DOUBLE PRECISION," +
                 "PRIMARY KEY(respondent_id, index_of_test, question_id) );", "Создана таблица " + tableName);
     }
