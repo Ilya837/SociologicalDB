@@ -61,24 +61,25 @@ public class MednikTable extends BaseTable implements TableOperations {
             csvReader.readNext();
 
             while ((nextRecord = csvReader.readNext()) != null) {
-
-                try {
                     String str[] = new String[18];
-                    int k = 1;
                     for (int i = 0; i<18; i++)
                     {
-                        str[i] = "'" + nextRecord[0] + "', " + TestIndex + ", " + i + ", '" + nextRecord[k] + "', " + nextRecord[k+20];
-                        k = k+1;
+                        if (nextRecord[i+1] == "" && nextRecord[i+21] == "")
+                        str[i] = "'" + nextRecord[0] + "', " + TestIndex + ", " + i + ", NULL, NULL";
+                        else
+                        str[i] = "'" + nextRecord[0] + "', " + TestIndex + ", " + i + ", '" + nextRecord[i+1] + "', " + nextRecord[i+21];
+                        try {
                         super.executeSqlStatement("INSERT INTO " + tableName +
                                 " VALUES ( " + str[i] + " );");
 
                         if (WriteInfo)
                             System.out.println("В " + tableName + " Добавлена запись " + str[i]);
+                        } catch (Exception e) {
+                            if (WriteExpention) System.out.println(e.toString());
+                        }
 
                     }
-                } catch (Exception e) {
-                    if (WriteExpention) System.out.println(e.toString());
-                }
+
             }
 
             csvReader.close();
