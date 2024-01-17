@@ -44,18 +44,14 @@ public class MednikQuestionsTable extends BaseTable implements TableOperations {
 
             String[] nextRecord;
             String[] str = new String[18];
-            int k = 1;
             try {
                 nextRecord = csvReader.readNext();
                 for (int i = 0; i < 18; i++) {
-                    str[i] = i + ", '" + nextRecord[k] + "; ";
-                    k = k+2;
+                    str[i] = i + ", '" + nextRecord[i+1] + "; ";
                 }
-                k = 1;
                 nextRecord = csvReader.readNext();
                 for (int i = 0; i < 18; i++) {
-                    str[i] = str[i] + nextRecord[k] + "; ";
-                    k = k+2;
+                    str[i] = str[i] + nextRecord[i+1] + "; ";
                 }
                 nextRecord = csvReader.readNext();
                 for (int i = 0; i < 18; i++) {
