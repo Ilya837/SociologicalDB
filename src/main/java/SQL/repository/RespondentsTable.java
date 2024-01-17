@@ -29,7 +29,7 @@ public class RespondentsTable extends BaseTable implements TableOperations {
         WriteInTable(filePath, Separator,WriteExpention,WriteInfo,false);
     }
 
-    public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo, boolean isSociology) throws SQLException {
+    public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo, boolean isSociology, boolean isMednik) throws SQLException {
 
         try {
             FileReader fileReader = new FileReader(filePath);
@@ -46,7 +46,7 @@ public class RespondentsTable extends BaseTable implements TableOperations {
 
             csvReader.readNext();
 
-            if(isSociology){
+            if(isSociology || isMednik){
                 csvReader.readNext();
                 csvReader.readNext();
             }
