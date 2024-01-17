@@ -40,18 +40,18 @@ public class SchwartzTable extends BaseTable implements TableOperations {
     }
 
     @Override
-    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+    public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo) throws SQLException {
 
-        WriteInTable(filePath,0,WriteExpention,WriteInfo);
+        WriteInTable(filePath,Separator,0,WriteExpention,WriteInfo);
 
     }
 
-    public void WriteInTable(String filePath,int TestIndex, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+    public void WriteInTable(String filePath,char Separator,int TestIndex, boolean WriteExpention, boolean WriteInfo) throws SQLException {
         try {
             FileReader fileReader = new FileReader(filePath);
 
             CSVParser parser = new CSVParserBuilder().
-                    withSeparator(';').
+                    withSeparator(Separator).
                     build();
 
             CSVReader csvReader = new CSVReaderBuilder(fileReader).

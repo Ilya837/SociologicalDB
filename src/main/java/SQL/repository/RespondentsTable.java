@@ -25,17 +25,17 @@ public class RespondentsTable extends BaseTable implements TableOperations {
     }
 
     @Override
-    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException {
-        WriteInTable(filePath,WriteExpention,WriteInfo,false);
+    public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+        WriteInTable(filePath, Separator,WriteExpention,WriteInfo,false);
     }
 
-    public void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo, boolean isSociology) throws SQLException {
+    public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo, boolean isSociology) throws SQLException {
 
         try {
             FileReader fileReader = new FileReader(filePath);
 
             CSVParser parser = new  CSVParserBuilder().
-                    withSeparator(';').
+                    withSeparator(Separator).
                     build();
 
             CSVReader csvReader = new CSVReaderBuilder(fileReader).

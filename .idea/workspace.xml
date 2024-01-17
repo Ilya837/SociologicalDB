@@ -11,9 +11,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/RespondentsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/RespondentsTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyQuestionsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyQuestionsTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SociologyTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/TableOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/TableOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/TriandisTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/TriandisTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +97,7 @@
       <workItem from="1705195662281" duration="385000" />
       <workItem from="1705237166296" duration="9780000" />
       <workItem from="1705262496982" duration="6171000" />
+      <workItem from="1705499647689" duration="519000" />
     </task>
     <servers />
   </component>

@@ -7,5 +7,5 @@ public interface TableOperations {
     void createTable() throws SQLException; // создание таблицы
     void createForeignKeys() throws SQLException; // создание связей между таблицами
 
-    void WriteInTable(String filePath, boolean WriteExpention, boolean WriteInfo) throws SQLException;
+    void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo) throws SQLException;
 }
