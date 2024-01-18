@@ -6,7 +6,10 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
 import java.io.FileReader;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class WilliamsTable extends SQL.repository.BaseTable implements TableOperations {
 
@@ -30,16 +33,16 @@ public class WilliamsTable extends SQL.repository.BaseTable implements TableOper
 
     @Override
     public void createForeignKeys() throws SQLException {
-        super.executeSqlStatement(" ALTER TABLE "+ tableName +" ADD FOREIGN KEY (respondent_id) REFERENCES respondents(respondent_id)",
+        super.executeSqlStatement(" ALTER TABLE " + tableName + " ADD FOREIGN KEY (respondent_id) REFERENCES respondents(respondent_id)",
                 "Cоздан внешний ключ " + tableName + ".respondent_id -> respondents.respondent_id");
     }
 
     @Override
-    public void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo) throws SQLException {
-        WriteInTable(filePath,Separator,0,WriteExpention,WriteInfo);
+    public void WriteInTable(String filePath, char Separator, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+        WriteInTable(filePath, Separator, 0, WriteExpention, WriteInfo);
     }
 
-    public void WriteInTable(String filePath,char Separator, int TestIndex, boolean WriteExpention, boolean WriteInfo) throws SQLException {
+    public void WriteInTable(String filePath, char Separator, int TestIndex, boolean WriteExpention, boolean WriteInfo) throws SQLException {
         try {
             FileReader fileReader = new FileReader(filePath);
 
@@ -55,7 +58,7 @@ public class WilliamsTable extends SQL.repository.BaseTable implements TableOper
 
             csvReader.readNext();
 
-            while((nextRecord = csvReader.readNext()) != null){
+            while ((nextRecord = csvReader.readNext()) != null) {
 
                 try {
                     String str = "";
@@ -74,17 +77,58 @@ public class WilliamsTable extends SQL.repository.BaseTable implements TableOper
                     if (WriteInfo)
                         System.out.println("В " + tableName + " Добавлена запись " + str);
 
+                } catch (Exception e) {
+                    if (WriteExpention) System.out.println(e.toString());
                 }
-                catch (Exception e){ if(WriteExpention) System.out.println(e.toString());}
             }
 
             csvReader.close();
             fileReader.close();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             if (WriteExpention) System.out.println(e.toString());
         }
     }
 
+    public int[] Variation(int[] borders, String column) {
+        int[] counts = new int[5];
+        String sql = "SELECT " +
+                "  COUNT(CASE WHEN " + column + " < ? THEN 1 END) AS count_less_than_x, " +
+                "  COUNT(CASE WHEN " + column + " >= ? AND " + column + " < ? THEN 1 END) AS count_between_x_and_y, " +
+                "  COUNT(CASE WHEN " + column + " >= ? AND " + column + " < ? THEN 1 END) AS count_between_y_and_z, " +
+                "  COUNT(CASE WHEN " + column + " >= ? AND " + column + " < ? THEN 1 END) AS count_between_z_and_w, " +
+                "  COUNT(CASE WHEN " + column + " >= ? THEN 1 END) AS count_greater_than_z " +
+                "FROM williams";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setDouble(1, borders[0]);
+            statement.setDouble(2, borders[0]);
+            statement.setDouble(3, borders[1]);
+            statement.setDouble(4, borders[1]);
+            statement.setDouble(5, borders[2]);
+            statement.setDouble(6, borders[2]);
+            statement.setDouble(7, borders[3]);
+            statement.setDouble(8, borders[3]);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    int countLessThanX = resultSet.getInt("count_less_than_x");
+                    int countBetweenXAndY = resultSet.getInt("count_between_x_and_y");
+                    int countBetweenYAndZ = resultSet.getInt("count_between_y_and_z");
+                    int countBetweenZAndW = resultSet.getInt("count_between_z_and_w");
+                    int countGreaterThanZ = resultSet.getInt("count_greater_than_z");
+
+                    counts[0] = resultSet.getInt("count_less_than_x");
+                    counts[1] = resultSet.getInt("count_between_x_and_y");
+                    counts[2] = resultSet.getInt("count_between_y_and_z");
+                    counts[3] = resultSet.getInt("count_between_z_and_w");
+                    counts[4] = resultSet.getInt("count_greater_than_z");
+                }
+            }
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return counts;
+    }
 }

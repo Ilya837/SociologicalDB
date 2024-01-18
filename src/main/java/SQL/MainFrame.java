@@ -1,11 +1,33 @@
 package SQL;
+
+import SQL.repository.WilliamsTable;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
+import java.sql.SQLException;
 
 public class MainFrame extends JFrame {
+
+    private int[] calcVariation(int[] borders, String column) {
+        int[] res;
+        String col = "";
+        switch (column){
+            case "Любознательность": col="inquisitiveness"; break;
+            case "Воображение": col="imagination"; break;
+            case "Сложность": col="complexity"; break;
+            case "Склонность к риску": col="risk_appetite"; break;
+        }
+        try {
+            WilliamsTable williamsTable = new WilliamsTable();
+            res = williamsTable.Variation(borders,col);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return res;
+    }
 
     public MainFrame() {
         super("SociologicalDB");
@@ -61,6 +83,34 @@ public class MainFrame extends JFrame {
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int[] bords = { 0, 6, 12, 18 };
+                int[] counts = calcVariation(bords,comboBoxIndicator.getSelectedItem().toString());
+
+                DefaultTableModel tableModel = new DefaultTableModel();
+                tableModel.addColumn("Интервал");
+                tableModel.addColumn("Количество");
+                String[] intervals = {"Меньше чем " + bords[0], "От " + bords[0] + " до " + (bords[1]-1),
+                        "От " + bords[1] + " до " + (bords[2]-1), "От " + bords[2] + " до " + (bords[3]-1),
+                        "Больше чем " + bords[3]};
+
+                for (int i = 0; i < intervals.length; i++) {
+                    Object[] rowData = {intervals[i], counts[i]};
+                    tableModel.addRow(rowData);
+                }
+
+                Component[] components = tab2.getComponents();
+                for (Component component : components) {
+                    if (component instanceof JScrollPane) {
+                        tab2.remove(component);
+                    }
+                }
+
+                JTable table = new JTable(tableModel);
+                JScrollPane scrollPane = new JScrollPane(table);
+                tab2.add(scrollPane, BorderLayout.CENTER);
+
+                tab2.revalidate();
+                tab2.repaint();
             }
         });
 
@@ -85,7 +135,7 @@ public class MainFrame extends JFrame {
         add(imagePanel, BorderLayout.SOUTH);
 
         //Настройки окна
-        setSize(700, 600);
+        setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
