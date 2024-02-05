@@ -8,4 +8,6 @@ public interface TableOperations {
     void createForeignKeys() throws SQLException; // создание связей между таблицами
 
     void WriteInTable(String filePath,char Separator, boolean WriteExpention, boolean WriteInfo) throws SQLException;
+
+
 }

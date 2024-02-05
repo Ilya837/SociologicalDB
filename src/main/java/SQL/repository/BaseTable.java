@@ -3,10 +3,9 @@ package SQL.repository;
 import SQL.StockExchangeDB;
 
 import java.io.Closeable;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 // Сервисный родительский класс, куда вынесена реализация общих действий для всех таблиц
@@ -39,8 +38,37 @@ public abstract class BaseTable implements Closeable {
             System.out.println(description);
     };
 
-    void executeSqlStatement(String sql) throws SQLException {
+    public void executeSqlStatement(String sql) throws SQLException {
         executeSqlStatement(sql, null);
+    };
+
+    public ArrayList<ArrayList<String>> executeSqlPreparedStatement(String sql, int collumCount, String description) throws SQLException {
+        reopenConnection(); // переоткрываем (если оно неактивно) соединение с СУБД
+        PreparedStatement statement = connection.prepareStatement(sql);  // Создаем statement для выполнения sql-команд
+        ResultSet rs = statement.executeQuery();
+
+        ArrayList<ArrayList<String>> result = new ArrayList<>() ;
+
+        while (rs.next()){
+            result.add(new ArrayList<String>());
+            for(int i = 1; i <= collumCount; i++){
+                result.get(rs.getRow() - 1)
+                        .add( rs.getString(i) );
+            }
+        }
+
+        rs.close();
+        statement.close();      // Закрываем statement для фиксации изменений в СУБД
+
+        if (description != null)
+            System.out.println(description);
+
+        return result;
+
+    };
+
+    public ArrayList<ArrayList<String>>  executeSqlPreparedStatement(String sql, int collumCount) throws SQLException {
+        return executeSqlPreparedStatement(sql,collumCount, null);
     };
 
 
