@@ -50,7 +50,7 @@ public class MainFrame extends JFrame {
                                         "SELECT CORR(" +tableName + "." + names[i] + ", " + tableName +"." + names[j] + ")" +
                                         "FROM " + tableName + ";",1
                                 );
-                                
+
 
                                 //System.out.println(sqlResult);
 

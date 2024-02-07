@@ -6,14 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="0fae9d0e-df56-4923-9b94-e7037d9faf91" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/BaseTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/BaseTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/TableOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/TableOperations.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="module-info" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,14 +50,25 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/SociologicalDB/src/main/java/SQL/CSV&quot;,
+    &quot;js.buildTools.grunt.grunt-cli.package&quot;: &quot;&quot;,
+    &quot;js.buildTools.gulp.gulp_package_dir&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/javafx-sdk-21.0.2/lib&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.47471264&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\SociologicalDB\src\main\java\SQL\CSV" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\SociologicalDB\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="SQL.repository" />
@@ -58,13 +78,39 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainFrame">
+  <component name="RunManager" selected="Application.MainFX">
+    <configuration name="MainFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SQL.MainFX" />
+      <module name="SociologicalDB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SQL.MainFrame" />
       <module name="SociologicalDB" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="SQL.*" />
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFrameFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SQL.MainFrameFX" />
+      <module name="SociologicalDB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,7 +123,7 @@
       <module name="SociologicalDB" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="SQL.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,9 +131,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="js.build_tools.grunt">
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainFX" />
         <item itemvalue="Application.MainFrame" />
+        <item itemvalue="Application.MainFrameFX" />
         <item itemvalue="Application.StockExchangeDB" />
       </list>
     </recent_temporary>
@@ -113,7 +175,19 @@
       <workItem from="1706637810602" duration="69000" />
       <workItem from="1706638313282" duration="2067000" />
       <workItem from="1707165595024" duration="2609000" />
-      <workItem from="1707169102881" duration="786000" />
+      <workItem from="1707169102881" duration="859000" />
+      <workItem from="1707257340154" duration="1193000" />
+      <workItem from="1707258549999" duration="991000" />
+      <workItem from="1707259766775" duration="87000" />
+      <workItem from="1707259884284" duration="326000" />
+      <workItem from="1707260590377" duration="818000" />
+      <workItem from="1707317488614" duration="2785000" />
+      <workItem from="1707325443717" duration="1568000" />
+      <workItem from="1707327039003" duration="4302000" />
+      <workItem from="1707331373116" duration="1148000" />
+      <workItem from="1707338241421" duration="2156000" />
+      <workItem from="1707340408629" duration="3023000" />
+      <workItem from="1707345734641" duration="8000" />
     </task>
     <servers />
   </component>
