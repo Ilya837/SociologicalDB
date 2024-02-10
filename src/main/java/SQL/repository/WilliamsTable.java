@@ -1,5 +1,6 @@
 package SQL.repository;
 
+import SQL.Variation;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -9,6 +10,7 @@ import java.io.FileReader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class WilliamsTable extends SQL.repository.BaseTable implements TableOperations {
@@ -130,5 +132,42 @@ public class WilliamsTable extends SQL.repository.BaseTable implements TableOper
             throw new RuntimeException(ex);
         }
         return counts;
+    }
+
+    public ArrayList<Variation> GetVariation(String column) {
+        ArrayList<Variation> list = new ArrayList<>();
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            String sql = "SELECT MIN(" + column + "), MAX(" + column + ") FROM " + tableName;
+            ResultSet resultSet = statement.executeQuery(sql);
+            resultSet.next();
+            int minValue = resultSet.getInt(1);
+            int maxValue = resultSet.getInt(2);
+
+            int k = (int) (1 + Math.log(maxValue - minValue + 1) / Math.log(2));
+            int h = (maxValue - minValue) / k;
+
+            sql = "SELECT COUNT(*) FROM " + tableName + " WHERE " + column + " >= ? AND " + column + " < ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            for (int i = 0; i < k; i++) {
+                int lowerBound = minValue + i * h;
+                int upperBound = lowerBound + h;
+
+                preparedStatement.setInt(1, lowerBound);
+                preparedStatement.setInt(2, upperBound);
+                resultSet = preparedStatement.executeQuery();
+                resultSet.next();
+                int frequency = resultSet.getInt(1);
+
+                list.add(new Variation("Интервал [" + lowerBound + "-" + upperBound + ")",String.valueOf(frequency)));
+
+                System.out.println("Интервал [" + lowerBound + "-" + upperBound + "): " + frequency);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
     }
 }

@@ -18,7 +18,7 @@ public class MednikQuestionsTable extends BaseTable implements TableOperations {
     public void createTable() throws SQLException {
         super.executeSqlStatement("CREATE TABLE IF NOT EXISTS " + tableName + "(" +
                 "question_id INTEGER PRIMARY KEY," +
-                "specification  CHARACTER VARYING(30) );" , "Создана таблица " + tableName);
+                "specification  CHARACTER VARYING(100) );" , "Создана таблица " + tableName);
     }
 
     @Override
@@ -61,13 +61,15 @@ public class MednikQuestionsTable extends BaseTable implements TableOperations {
                         if (WriteInfo)
                             System.out.println("В " + tableName + " Добавлена запись " + str[i]);
                     }
-                    catch (Exception e){ if(WriteExpention) System.out.println(e.toString());}
+                    catch (Exception e){ if(WriteExpention) System.out.println("MednikQuestion " + e.toString());}
                 }
             csvReader.close();
             fileReader.close();
         }
         catch (Exception e){
-            if (WriteExpention) System.out.println(e.toString());
+            if (WriteExpention) {
+                System.out.println(e.toString());
+            }
         }
     }
 

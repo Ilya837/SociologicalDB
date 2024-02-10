@@ -17,10 +17,10 @@ public class MednikOriginalityTable extends BaseTable implements TableOperations
     @Override
     public void createTable() throws SQLException {
         super.executeSqlStatement("CREATE TABLE IF NOT EXISTS " + tableName + "(" +
-                "respondent_id CHARACTER VARYING(30)," +
+                "respondent_id CHARACTER VARYING(50)," +
                 "index_of_test INTEGER," +
                 "originality DOUBLE PRECISION," +
-                "level_name CHARACTER VARYING(30)," +
+                "level_name CHARACTER VARYING(50)," +
                 "PRIMARY KEY(respondent_id, index_of_test) );", "Создана таблица " + tableName);
     }
 
@@ -71,7 +71,7 @@ public class MednikOriginalityTable extends BaseTable implements TableOperations
                         System.out.println("В " + tableName + " Добавлена запись " + str);
 
                 } catch (Exception e) {
-                    if (WriteExpention) System.out.println(e.toString());
+                    if (WriteExpention) System.out.println("MednikOriginality " + e.toString());
                 }
             }
 
@@ -79,7 +79,9 @@ public class MednikOriginalityTable extends BaseTable implements TableOperations
             fileReader.close();
 
         } catch (Exception e) {
-            if (WriteExpention) System.out.println(e.toString());
+            if (WriteExpention) {
+                System.out.println(e.toString());
+            }
         }
     }
 }

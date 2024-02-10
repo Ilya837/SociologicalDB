@@ -1,5 +1,6 @@
 package SQL;
 
+import SQL.repository.SchwartzTable;
 import SQL.repository.WilliamsTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,9 +15,9 @@ public class MainSceneController {
 
     ObservableList<String> tableTypeList = FXCollections.observableArrayList("Вариационный ряд", "Корреляционная таблица");
     ObservableList<String> correlationTablesList = FXCollections.observableArrayList("Вильямс");
-    ObservableList<String> VariationTablesList = FXCollections.observableArrayList("Вильямс");
+    ObservableList<String> VariationTablesList = FXCollections.observableArrayList("Вильямс", "Шварц");
     ObservableList<String> WilliamFieldsList = FXCollections.observableArrayList("Любознательность", "Воображение", "Сложность", "Склонность к риску");
-
+    ObservableList<String> SchwartzFieldsList = FXCollections.observableArrayList("Безопасность", "Конформность", "Традиция", "Самостоятельность", "Риск–новизна", "Гедонизм", "Достижение","Власть–богатство","Благожелательность", "Универсализм");
 
     @FXML
     private Label tableTypeLabel;
@@ -90,6 +91,10 @@ public class MainSceneController {
                         fieldBox.setItems(WilliamFieldsList);
                         break;
                     }
+                    case("Шварц"): {
+                        fieldBox.setItems(SchwartzFieldsList);
+                        break;
+                    }
                 }
 
                 fieldLabel.setVisible(true);
@@ -114,15 +119,14 @@ public class MainSceneController {
     }
 
 
-    private ArrayList<String> GetVariationSeries(String tableName){
+    private ArrayList<Variation> GetVariationSeries(String tableName){
 
-        ArrayList<String> result = new ArrayList<>();
+        ArrayList<Variation> result = new ArrayList<>();
 
         switch(tableName){
 
             case ("Вильямс"):{
                 String column = "";
-                int[] bords = { 0, 6, 12, 18 };
 
                 switch (fieldBox.getValue()){
                     case "Любознательность": column="inquisitiveness"; break;
@@ -130,28 +134,39 @@ public class MainSceneController {
                     case "Сложность": column="complexity"; break;
                     case "Склонность к риску": column="risk_appetite"; break;
                 }
-
-                String sql = "SELECT " +
-                        "  COUNT(CASE WHEN " + column + " < " + bords[0] + " THEN 1 END) AS count_less_than_x, " +
-                        "  COUNT(CASE WHEN " + column + " >= " + bords[0] + " AND " + column + " < " + bords[1] + " THEN 1 END) AS count_between_x_and_y, " +
-                        "  COUNT(CASE WHEN " + column + " >= " + bords[1] + " AND " + column + " < " + bords[2] + " THEN 1 END) AS count_between_y_and_z, " +
-                        "  COUNT(CASE WHEN " + column + " >= " + bords[2] + " AND " + column + " < " + bords[3] + " THEN 1 END) AS count_between_z_and_w, " +
-                        "  COUNT(CASE WHEN " + column + " >= " + bords[3] + " THEN 1 END) AS count_greater_than_z " +
-                        "FROM williams";
-
-
                 try {
                     WilliamsTable williamsTable = new WilliamsTable();
-                    ArrayList<ArrayList<String>> answer = williamsTable.executeSqlPreparedStatement(sql,5);
 
-
-                    result = answer.get(0); ;
+                    result = williamsTable.GetVariation(column);
 
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+                break;
+            }
+            case("Шварц"):{
+                String column = "";
 
+                switch (fieldBox.getValue()){
+                    case "Безопасность": column="safety"; break;
+                    case "Конформность": column="comfort"; break;
+                    case "Традиция": column="tradition"; break;
+                    case "Самостоятельность": column="independence"; break;
+                    case "Риск–новизна": column="risk_novelty"; break;
+                    case "Гедонизм": column="hedonism"; break;
+                    case "Власть–богатство": column="power"; break;
+                    case "Достижение": column="achievement"; break;
+                    case "Благожелательность": column="benevolence"; break;
+                    case "Универсализм": column="universalism"; break;
+                }
+                try {
+                    SchwartzTable schwartzTable = new SchwartzTable();
 
+                    result = schwartzTable.GetVariation(column);
+
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             }
 
@@ -169,41 +184,21 @@ public class MainSceneController {
 
         switch (tableTypeBox.getValue()){
             case("Вариационный ряд"):{
-                ArrayList<String> result = GetVariationSeries(tableBox.getValue());
+                ArrayList<Variation> result = GetVariationSeries(tableBox.getValue());
 
+                table.getColumns().clear();
 
-                switch (tableBox.getValue()){
-                    case ("Вильямс"):{
-                        int[] bords = { 0, 6, 12, 18 };
-                        String[] intervals = {"Меньше чем " + bords[0], "От " + bords[0] + " до " + (bords[1]-1),
-                                "От " + bords[1] + " до " + (bords[2]-1), "От " + bords[2] + " до " + (bords[3]-1),
-                                "Больше чем " + bords[3]};
+                TableColumn<Variation,String> intervalCol = new TableColumn<>("Interval");
+                intervalCol.setCellValueFactory(new PropertyValueFactory<>("interval"));
 
+                TableColumn<Variation,String> countCol = new TableColumn<>("Count");
+                countCol.setCellValueFactory(new PropertyValueFactory<>("score"));
 
-                        table.getColumns().clear();
+                table.getColumns().add(intervalCol);
+                table.getColumns().add(countCol);
 
-                        ArrayList<Variation> variations = new ArrayList<>();
-
-                        for(int i = 0; i< intervals.length; i++){
-                            variations.add(new Variation(intervals[i], result.get(i)));
-                        }
-
-                        TableColumn<Variation,String> intervalCol = new TableColumn<>("Interval");
-                        intervalCol.setCellValueFactory(new PropertyValueFactory<>("interval"));
-
-                        TableColumn<Variation,String> countCol = new TableColumn<>("Count");
-                        countCol.setCellValueFactory(new PropertyValueFactory<>("score"));
-
-                        table.getColumns().add(intervalCol);
-                        table.getColumns().add(countCol);
-
-                        for(int i = 0; i< variations.size();i++){
-                            table.getItems().add(variations.get(i));
-                        }
-                        break;
-
-
-                    }
+                for(int i = 0; i< result.size();i++){
+                    table.getItems().add(result.get(i));
                 }
 
                 break;

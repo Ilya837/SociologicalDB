@@ -17,7 +17,7 @@ public class MednikTable extends BaseTable implements TableOperations {
     @Override
     public void createTable() throws SQLException {
         super.executeSqlStatement("CREATE TABLE IF NOT EXISTS " + tableName + "(" +
-                "respondent_id CHARACTER VARYING(30)," +
+                "respondent_id CHARACTER VARYING(50)," +
                 "index_of_test INTEGER," +
                 "question_id INTEGER," +
                 "answer CHARACTER VARYING(255)," +
@@ -75,7 +75,7 @@ public class MednikTable extends BaseTable implements TableOperations {
                         if (WriteInfo)
                             System.out.println("В " + tableName + " Добавлена запись " + str[i]);
                         } catch (Exception e) {
-                            if (WriteExpention) System.out.println(e.toString());
+                            if (WriteExpention) System.out.println("Mednik " + e.toString());
                         }
 
                     }
@@ -86,7 +86,9 @@ public class MednikTable extends BaseTable implements TableOperations {
             fileReader.close();
 
         } catch (Exception e) {
-            if (WriteExpention) System.out.println(e.toString());
+            if (WriteExpention) {
+                System.out.println(e.toString());
+            }
         }
     }
 }

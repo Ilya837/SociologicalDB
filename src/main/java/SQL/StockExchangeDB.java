@@ -142,7 +142,7 @@ public class StockExchangeDB {
         mednikTable.WriteInTable("./src/main/java/SQL/CSV/Mednik.csv",'|',1, false, true);
         triandisTable.WriteInTable("./src/main/java/SQL/CSV/Triandis.csv",';',1, false, true);
         sociologyQuestionsTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',1, false, true);
-        sociologyTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',1, true, false);
+        sociologyTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',1, false, true);
     }
 
     public static void main(String[] args) {
