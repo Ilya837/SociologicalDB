@@ -222,6 +222,44 @@ public class StockExchangeDB {
 
     }
 
+    public static ArrayList<ArrayList<String>> GetCorrelationMatrix(String tableName) throws SQLException {
+
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+
+        switch (tableName){
+            case ("Вильямс"):{
+
+                String[] names = {"inquisitiveness", "imagination", "complexity","risk_appetite"};
+
+                for(int i = 0; i< 4; i++){
+
+                    result.add(new ArrayList<>());
+
+                    for(int j = 0; j < i;j++){
+                        result.get(i).add( result.get(j).get(i));
+                    }
+
+                    for(int j = i; j < 4;j++){
+                        if(i == j) result.get(i).add("1");
+                        else{
+                            ArrayList<ArrayList<String>> sqlResult = williamsTable.executeSqlPreparedStatement(
+                                    "SELECT CORR(" +williamsTable.getTableName() + "." + names[i] + ", " + williamsTable.getTableName() +"." + names[j] + ")" +
+                                            "FROM " + williamsTable.getTableName() + ";",1
+                            );
+
+                            result.get(i).add( sqlResult.get(0).get(0) );
+
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+        return result;
+
+    }
     public static void main(String[] args) {
         try{
             createTablesAndForeignKeys();

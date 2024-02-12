@@ -42,6 +42,10 @@ public abstract class BaseTable implements Closeable {
         executeSqlStatement(sql, null);
     };
 
+    public String getTableName() {
+        return tableName;
+    }
+
     public ArrayList<ArrayList<String>> executeSqlPreparedStatement(String sql, int collumCount, String description) throws SQLException {
         reopenConnection(); // переоткрываем (если оно неактивно) соединение с СУБД
         PreparedStatement statement = connection.prepareStatement(sql);  // Создаем statement для выполнения sql-команд

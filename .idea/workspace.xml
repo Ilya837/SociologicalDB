@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fae9d0e-df56-4923-9b94-e7037d9faf91" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/MainSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/MainSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/BaseTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/BaseTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +118,7 @@
       <workItem from="1705262496982" duration="6171000" />
       <workItem from="1705499647689" duration="519000" />
       <workItem from="1707774335067" duration="1139000" />
-      <workItem from="1707777224469" duration="774000" />
+      <workItem from="1707777224469" duration="1079000" />
     </task>
     <servers />
   </component>

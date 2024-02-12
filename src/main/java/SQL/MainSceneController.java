@@ -123,7 +123,7 @@ public class MainSceneController {
 
 
     @FXML
-    private void OnButtonClick(){
+    private void OnButtonClick() throws SQLException {
 
         table.getColumns().clear();
         table.getItems().clear();
@@ -148,6 +148,44 @@ public class MainSceneController {
                 }
 
                 break;
+            }
+            case("Корреляционная таблица"):{
+
+                switch (tableBox.getValue()){
+                    case("Вильямс"):{
+                        ArrayList<ArrayList<String>> result = SQL.StockExchangeDB.GetCorrelationMatrix(tableBox.getValue());
+
+                        ArrayList<String> fields = new ArrayList<>();
+                        fields.add("Любознательность");
+                        fields.add("Воображение");
+                        fields.add("Сложность");
+                        fields.add("Склонность к риску");
+
+                        TableColumn<CorrelationWilliams,String> Col = new TableColumn<>("");
+                        Col.setCellValueFactory(new PropertyValueFactory<>("field"));
+
+                        table.getColumns().add(Col);
+
+                        for(int i = 1; i<= 4;i++){
+                            TableColumn<CorrelationWilliams,String> Col2 = new TableColumn<>(fields.get(i-1));
+                            Col2.setCellValueFactory(new PropertyValueFactory<>("num" + i));
+
+                            table.getColumns().add(Col2);
+                        }
+
+
+                        for(int i = 0; i< 4;i++){
+                            CorrelationWilliams collum = new CorrelationWilliams(fields.get(i),result.get(i).get(0),
+                                    result.get(i).get(1),
+                                    result.get(i).get(2),
+                                    result.get(i).get(3));
+
+                            table.getItems().add(collum);
+                        }
+
+                    }
+                }
+
             }
         }
 
