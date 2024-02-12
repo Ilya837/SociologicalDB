@@ -161,9 +161,9 @@ public class WilliamsTable extends SQL.repository.BaseTable implements TableOper
                 resultSet.next();
                 int frequency = resultSet.getInt(1);
 
-                list.add(new Variation("Интервал [" + lowerBound + "-" + upperBound + ")",String.valueOf(frequency)));
+                list.add(new Variation("Интервал [ " + lowerBound + "; " + upperBound + ")",String.valueOf(frequency)));
 
-                System.out.println("Интервал [" + lowerBound + "-" + upperBound + "): " + frequency);
+                System.out.println("Интервал [ " + lowerBound + "; " + upperBound + "): " + frequency);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

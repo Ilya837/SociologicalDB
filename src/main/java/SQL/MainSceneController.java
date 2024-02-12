@@ -44,7 +44,7 @@ public class MainSceneController {
     TableView table;
 
     @FXML
-    private void initialize(){
+    private void initialize() throws SQLException {
         tableTypeBox.setItems(tableTypeList);
         fieldBox.setVisible(false);
         tableBox.setVisible(false);
@@ -52,7 +52,7 @@ public class MainSceneController {
         fieldLabel.setVisible(false);
         button.setVisible(false);
         table.setVisible(false);
-
+        SQL.StockExchangeDB.initialize();
     }
 
     @FXML
@@ -81,6 +81,7 @@ public class MainSceneController {
         table.setVisible(false);
         fieldLabel.setVisible(false);
         fieldBox.setVisible(false);
+        button.setVisible(false);
 
 
         switch (tableTypeBox.getValue()){
@@ -119,62 +120,7 @@ public class MainSceneController {
     }
 
 
-    private ArrayList<Variation> GetVariationSeries(String tableName){
 
-        ArrayList<Variation> result = new ArrayList<>();
-
-        switch(tableName){
-
-            case ("Вильямс"):{
-                String column = "";
-
-                switch (fieldBox.getValue()){
-                    case "Любознательность": column="inquisitiveness"; break;
-                    case "Воображение": column="imagination"; break;
-                    case "Сложность": column="complexity"; break;
-                    case "Склонность к риску": column="risk_appetite"; break;
-                }
-                try {
-                    WilliamsTable williamsTable = new WilliamsTable();
-
-                    result = williamsTable.GetVariation(column);
-
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                break;
-            }
-            case("Шварц"):{
-                String column = "";
-
-                switch (fieldBox.getValue()){
-                    case "Безопасность": column="safety"; break;
-                    case "Конформность": column="comfort"; break;
-                    case "Традиция": column="tradition"; break;
-                    case "Самостоятельность": column="independence"; break;
-                    case "Риск–новизна": column="risk_novelty"; break;
-                    case "Гедонизм": column="hedonism"; break;
-                    case "Власть–богатство": column="power"; break;
-                    case "Достижение": column="achievement"; break;
-                    case "Благожелательность": column="benevolence"; break;
-                    case "Универсализм": column="universalism"; break;
-                }
-                try {
-                    SchwartzTable schwartzTable = new SchwartzTable();
-
-                    result = schwartzTable.GetVariation(column);
-
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                break;
-            }
-
-        }
-
-        return result;
-
-    }
 
     @FXML
     private void OnButtonClick(){
@@ -184,7 +130,7 @@ public class MainSceneController {
 
         switch (tableTypeBox.getValue()){
             case("Вариационный ряд"):{
-                ArrayList<Variation> result = GetVariationSeries(tableBox.getValue());
+                ArrayList<Variation> result = SQL.StockExchangeDB.GetVariationSeries(tableBox.getValue(), fieldBox.getValue());
 
                 table.getColumns().clear();
 

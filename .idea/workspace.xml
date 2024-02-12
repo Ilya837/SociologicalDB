@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0fae9d0e-df56-4923-9b94-e7037d9faf91" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/MainSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/MainSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/StockExchangeDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikOriginalityTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikOriginalityTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikQuestionsTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/MednikTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/SchwartzTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQL/repository/WilliamsTable.java" afterDir="false" />
     </list>
@@ -50,29 +46,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/PC/Downloads/SociologicalDB-master/SociologicalDB-master",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Downloads/SociologicalDB-master/SociologicalDB-master&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\SociologicalDB\src\main\java\SQL\CSV" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="SQL" />
       <recent name="SQL.repository" />
       <recent name="SQL.model" />
       <recent name="" />
       <recent name="repository" />
-      <recent name="model" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MainFX">
@@ -123,6 +119,8 @@
       <workItem from="1705237166296" duration="9780000" />
       <workItem from="1705262496982" duration="6171000" />
       <workItem from="1705499647689" duration="519000" />
+      <workItem from="1707774335067" duration="1139000" />
+      <workItem from="1707777224469" duration="774000" />
     </task>
     <servers />
   </component>

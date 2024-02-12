@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class StockExchangeDB {
     // Блок объявления констант
@@ -20,17 +21,46 @@ public class StockExchangeDB {
 
     // Таблицы СУБД
 
-    RespondentsTable respondentsTable;
-    WilliamsTable williamsTable;
-    SchwartzTable schwartzTable;
-    TriandisTable triandisTable;
-    MednikTable mednikTable;
-    MednikQuestionsTable mednikQuestionsTable;
-    MednikOriginalityTable mednikOriginalityTable;
-    SociologyTable sociologyTable;
-    SociologyQuestionsTable sociologyQuestionsTable;
+    static RespondentsTable respondentsTable;
+    static WilliamsTable williamsTable;
+    static SchwartzTable schwartzTable;
+    static TriandisTable triandisTable;
+    static MednikTable mednikTable;
+    static MednikQuestionsTable mednikQuestionsTable;
+    static MednikOriginalityTable mednikOriginalityTable;
+    static SociologyTable sociologyTable;
+    static SociologyQuestionsTable sociologyQuestionsTable;
 
 
+    public  static void initialize() throws SQLException {
+        Connection connection = null;
+        boolean haveBase = false;
+
+        try{
+            connection = getConnection();
+            haveBase = true;
+            connection.close();
+        }
+        catch (SQLException e){
+            haveBase = false;
+
+        }
+
+        if(!haveBase){
+            createDB();
+        }
+
+        // Инициализируем таблицы
+        respondentsTable = new RespondentsTable();
+        williamsTable = new WilliamsTable();
+        schwartzTable = new SchwartzTable();
+        triandisTable = new TriandisTable();
+        mednikTable = new MednikTable();
+        mednikQuestionsTable = new MednikQuestionsTable();
+        mednikOriginalityTable = new MednikOriginalityTable();
+        sociologyTable = new SociologyTable();
+        sociologyQuestionsTable = new SociologyQuestionsTable();
+    }
 
     // Получить новое соединение с БД
     public static Connection getConnection() throws SQLException {
@@ -39,7 +69,7 @@ public class StockExchangeDB {
 
     // Инициализация
 
-    private void  createDB() throws SQLException {
+    private static void  createDB() throws SQLException {
 
         Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:"+ DB_PORT +"/", username, password );
 
@@ -61,7 +91,7 @@ public class StockExchangeDB {
 
 
     }
-    public StockExchangeDB() throws SQLException, ClassNotFoundException {
+    public  StockExchangeDB() throws SQLException, ClassNotFoundException {
 
 
         Connection connection = null;
@@ -95,7 +125,7 @@ public class StockExchangeDB {
     }
 
     // Создание всех таблиц и ключей между ними
-    public void createTablesAndForeignKeys() throws SQLException {
+    public static void createTablesAndForeignKeys() throws SQLException {
         respondentsTable.createTable();
         williamsTable.createTable();
         schwartzTable.createTable();
@@ -115,7 +145,7 @@ public class StockExchangeDB {
         sociologyTable.createForeignKeys();
     }
 
-    public void closeTables(){
+    public static void closeTables(){
         respondentsTable.close();
         williamsTable.close();
         schwartzTable.close();
@@ -127,7 +157,7 @@ public class StockExchangeDB {
         sociologyQuestionsTable.close();
     }
 
-    public void WriteInTables() throws SQLException {
+    public static void WriteInTables() throws SQLException {
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Respondents.csv", ';',false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Williams.csv",';',false, true);
         respondentsTable.WriteInTable("./src/main/java/SQL/CSV/Schwarrtz.csv",';',false, true);
@@ -145,20 +175,64 @@ public class StockExchangeDB {
         sociologyTable.WriteInTable("./src/main/java/SQL/CSV/Sociology.csv",';',1, false, true);
     }
 
+    public static ArrayList<Variation> GetVariationSeries(String tableName,String field){
+
+        ArrayList<Variation> result = new ArrayList<>();
+
+        switch(tableName){
+
+            case ("Вильямс"):{
+                String column = "";
+
+                switch (field){
+                    case "Любознательность": column="inquisitiveness"; break;
+                    case "Воображение": column="imagination"; break;
+                    case "Сложность": column="complexity"; break;
+                    case "Склонность к риску": column="risk_appetite"; break;
+                }
+
+                result = williamsTable.GetVariation(column);
+
+                break;
+            }
+            case("Шварц"):{
+                String column = "";
+
+                switch (field){
+                    case "Безопасность": column="safety"; break;
+                    case "Конформность": column="comfort"; break;
+                    case "Традиция": column="tradition"; break;
+                    case "Самостоятельность": column="independence"; break;
+                    case "Риск–новизна": column="risk_novelty"; break;
+                    case "Гедонизм": column="hedonism"; break;
+                    case "Власть–богатство": column="power"; break;
+                    case "Достижение": column="achievement"; break;
+                    case "Благожелательность": column="benevolence"; break;
+                    case "Универсализм": column="universalism"; break;
+                }
+
+                result = schwartzTable.GetVariation(column);
+
+                break;
+            }
+
+        }
+
+        return result;
+
+    }
+
     public static void main(String[] args) {
         try{
-            StockExchangeDB stockExchangeDB = new StockExchangeDB();
-            stockExchangeDB.createTablesAndForeignKeys();
-            stockExchangeDB.closeTables();
+            createTablesAndForeignKeys();
+            closeTables();
 
-            stockExchangeDB.WriteInTables();
+            WriteInTables();
 
 
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Ошибка SQL !");
-        } catch (ClassNotFoundException e) {
-            System.out.println("JDBC драйвер для СУБД не найден!");
         }
     }
 }

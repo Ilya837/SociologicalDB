@@ -126,9 +126,9 @@ public class SchwartzTable extends BaseTable implements TableOperations {
                 resultSet.next();
                 int frequency = resultSet.getInt(1);
 
-                list.add(new Variation("Интервал [" + Math.floor(lowerBound * 100.0) / 100.0 + "-" + Math.floor(upperBound * 100.0) / 100.0 + ")",String.valueOf(frequency)));
+                list.add(new Variation("Интервал [ " + Math.floor(lowerBound * 100.0) / 100.0 + "; " + Math.floor(upperBound * 100.0) / 100.0 + ")",String.valueOf(frequency)));
 
-                System.out.println("Интервал [" + lowerBound + "-" + upperBound + "): " + frequency);
+                System.out.println("Интервал [ " + lowerBound + "; " + upperBound + "): " + frequency);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
